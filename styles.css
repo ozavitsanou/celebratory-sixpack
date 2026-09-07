@@ -1,0 +1,357 @@
+/* ============================================================
+   KDS tokens — values pulled from Figma variables (get_variable_defs)
+   File: Celebratory six-pack event card (hgMaizVdRYe2ztxDpdzRSZ)
+   ============================================================ */
+:root{
+  /* sem/color/bg */
+  --sem-color-bg-layout:#eff2fa;
+  --sem-color-bg-section:#fcfcfd;
+  --sem-color-bg-primary-default:#ff3c00;
+  --sem-color-bg-primary-medium:#db3300;
+  --sem-color-bg-primary-pale:#ffddd1;
+  --sem-color-bg-secondary-default:#37a25c;
+  --sem-color-bg-absolute-white:#ffffff;
+  --sem-color-bg-container-lowest-default:#ffffff;
+  --sem-color-bg-off-white-pale-default:#fcfcfd;
+  --sem-color-bg-off-gray-subtle-default:#f7f9fc;
+  --sem-color-bg-gray-subtle-default:#eaeefb;
+  --sem-color-bg-gray-subtle-active:#d1d9eb;
+  --sem-color-bg-gray-medium-default:#e2e8f8;
+  --sem-color-bg-gradient-primary-strong-start:#db3300;
+  --sem-color-bg-gradient-primary-strong-end:#8a143b;
+  /* sem/color/border */
+  --sem-color-border-section:#eaeefb;
+  --sem-color-border-container-lowest:#e2e8f8;
+  --sem-color-border-container-medium:#c2cee5;
+  --sem-color-border-off-white-pale:#c2cee5;
+  --sem-color-border-off-gray-pale:#e2e8f8;
+  --sem-color-border-gray-pale:#e2e8f8;
+  --sem-color-border-primary-soft:#ffcbbd;
+  --sem-color-border-absolute-alpha-gray:rgba(184,197,224,.2);
+  --sem-color-border-transparent:rgba(9,13,21,0);
+  /* sem/color/text */
+  --sem-color-text-absolute-white:#ffffff;
+  --sem-color-text-absolute-black:#090915;
+  --sem-color-text-gray-emphasis:#151923;
+  --sem-color-text-gray-strong:#2a3346;
+  --sem-color-text-gray-subtle:#526789;
+  --sem-color-text-gray-soft:#60739f;
+  --sem-color-text-gray-inverted:#ffffff;
+  --sem-color-text-primary:#db3300;
+  --sem-color-text-highlight:#3a7824;
+  /* sem/color/fg + overlay */
+  --sem-color-fg-gray-emphasis:#151923;
+  --sem-color-fg-divider-soft:#dbe5f5;
+  --sem-color-fg-divider-bold:#cfd9ed;
+  --sem-color-overlay-absolute-white-low:rgba(255,255,255,.3);
+  /* spacing / sizing / radius */
+  --spacing-space-xxs:2px;
+  --spacing-space-s:8px;
+  --spacing-space-m:16px;
+  --sem-spacing-8:8px;
+  --sem-border-radius-8:8px;
+  --odd-selection-max-height-six-pack:52px;
+  --market-section-min-width-six-pack:190px;
+  /* desktop-screen tokens */
+  --sem-color-bg-gray-soft-default:#f5f7fa;
+  --sem-color-bg-off-gray-medium-default:#eaeefb;
+  --sem-color-bg-container-low-default:#f7f9fc;
+  --sem-color-bg-gray-emphasis-default:#151923;
+  --sem-color-bg-absolute-black:#131320;
+  --sem-color-border-gray-soft:#d1d9eb;
+  --sem-color-border-gray-subtle:#dbe4f0;
+  --sem-color-border-gray-bold:#a9b9d1;
+  --sem-color-border-off-black-pale:#526789;
+  --sem-color-border-primary-bold:#ff3c00;
+  --sem-color-text-sky:#154fc1;
+  --sem-color-text-gray-subtle-offers:#454e5e;
+  /* typography */
+  --font-ubuntu:'Ubuntu',sans-serif;
+  /* global/typography/font-family/Ubuntu = "Ubuntu Sans" (odds + market lines) */
+  --font-ubuntu-sans:'Ubuntu Sans',sans-serif;
+  /* brand/typography/font-family = Betano Nichrome (not embeddable) —
+     Archivo condensed stands in for the prototype */
+  --font-nichrome:'Archivo',sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--sem-color-bg-layout);font-family:var(--font-ubuntu);color:var(--sem-color-text-gray-emphasis)}
+img{display:block}
+.screen{min-height:100vh;display:flex;flex-direction:column}
+
+/* ============================================================
+   App header (status bar + header content)
+   ============================================================ */
+.app-header{position:sticky;top:0;z-index:40}
+.status-bar{background:var(--sem-color-bg-primary-default);height:54px;position:relative}
+.status-bar img{position:absolute;top:0;height:54px;width:125.485px}
+.status-bar .time{left:0}
+.status-bar .items{right:0}
+.header-content{background:var(--sem-color-bg-primary-default);height:56px;display:flex;align-items:center;justify-content:space-between}
+.header-left{display:flex;align-items:center;padding-left:var(--spacing-space-m)}
+.header-left img{width:24px;height:24px}
+.header-right{display:flex;align-items:center;gap:var(--spacing-space-s);padding:0 var(--spacing-space-m);height:100%}
+.header-right > img{width:24px;height:24px}
+.balance-pill{background:var(--sem-color-bg-primary-medium);display:flex;align-items:center;gap:4px;padding-left:4px;border-radius:24px 8px 8px 24px;overflow:hidden}
+.balance-pill .acct{width:24px;height:24px}
+.balance-pill .amount{display:flex;gap:2px;font-weight:700;font-size:14px;line-height:16px;color:var(--sem-color-text-absolute-white)}
+.deposit-btn{background:var(--sem-color-bg-secondary-default);color:var(--sem-color-text-absolute-white);font-family:var(--font-ubuntu);font-weight:700;font-size:12px;line-height:12px;border:none;height:32px;padding:0 12px;border-radius:8px;margin-left:4px;cursor:pointer;letter-spacing:.2px}
+
+/* ============================================================
+   League section header (gradient)
+   ============================================================ */
+.league-header{position:relative;padding-bottom:var(--sem-spacing-8);overflow:hidden}
+.league-header .theme{position:absolute;inset:0;border-radius:0 0 16px 16px;overflow:hidden;
+  background:linear-gradient(270deg,var(--sem-color-bg-gradient-primary-strong-start) 0%,var(--sem-color-bg-gradient-primary-strong-end) 100%)}
+.league-header .theme .watermark{position:absolute;right:-3px;bottom:-9px;width:126px;height:126px}
+.league-inner{position:relative;max-width:1024px;margin:0 auto;width:100%}
+
+.sports-picker{display:flex;gap:var(--spacing-space-s);align-items:center;padding:var(--spacing-space-s);overflow-x:auto;scrollbar-width:none}
+.sports-picker::-webkit-scrollbar{display:none}
+.sport-tab{display:flex;flex-direction:column;align-items:center;min-width:64px;padding:4px 8px;border-radius:var(--sem-border-radius-8);border:1px solid var(--sem-color-border-transparent);flex:none;cursor:pointer}
+.sport-tab img{width:24px;height:24px}
+.sport-tab span{font-size:12px;line-height:16px;color:var(--sem-color-text-absolute-white);max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sport-tab.active{background:var(--sem-color-overlay-absolute-white-low)}
+.sport-tab.active span{font-weight:700}
+
+.league-info{display:flex;align-items:center;gap:var(--spacing-space-s);padding:16px 16px 8px}
+.league-icon{position:relative;width:30px;height:30px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--sem-color-bg-off-white-pale-default);border:1px solid var(--sem-color-border-off-white-pale);border-radius:var(--sem-border-radius-8)}
+.league-icon img{width:20px;height:20px}
+.league-info h1{font-size:20px;line-height:24px;font-weight:700;color:var(--sem-color-text-absolute-white)}
+.league-info .caret{width:20px;height:20px}
+
+.tab-row{display:flex;gap:4px;align-items:flex-end;padding:var(--spacing-space-s);overflow-x:auto;scrollbar-width:none}
+.tab-row::-webkit-scrollbar{display:none}
+.tab-chip{display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 12px;border-radius:16px;border:2px solid var(--sem-color-border-transparent);font-size:12px;line-height:16px;font-weight:500;color:var(--sem-color-text-absolute-white);white-space:nowrap;cursor:pointer;flex:none}
+.tab-chip.active{background:var(--sem-color-bg-absolute-white);color:var(--sem-color-text-absolute-black)}
+
+/* ============================================================
+   Body / content
+   ============================================================ */
+.body-area{flex:1 1 auto;padding-bottom:92px}
+.content{max-width:1024px;margin:0 auto;width:100%}
+.section-1{display:flex;flex-direction:column;gap:var(--sem-spacing-8);padding:16px var(--sem-spacing-8) var(--sem-spacing-8)}
+
+/* BB+ switcher */
+.bb-switcher{background:var(--sem-color-bg-gray-subtle-active);border:1px solid var(--sem-color-border-container-medium);height:32px;max-width:428px;width:100%;border-radius:16px;display:flex;gap:var(--spacing-space-xxs);align-items:center;padding:4px;margin:0 auto}
+.bb-tab{flex:1 0 0;min-width:1px;height:24px;display:flex;align-items:center;justify-content:center;gap:4px;padding:0 8px;border-radius:50px;font-size:12px;line-height:16px;font-weight:500;color:var(--sem-color-text-gray-strong);cursor:pointer;white-space:nowrap}
+.bb-tab.active{background:var(--sem-color-bg-absolute-white);color:var(--sem-color-text-absolute-black)}
+.bb-badge{width:20px;height:12px;background:var(--sem-color-bg-primary-default);border-radius:0 var(--sem-border-radius-8) 0 var(--spacing-space-s);display:flex;align-items:center;justify-content:center;flex:none}
+.bb-badge span{font-size:9px;line-height:12px;font-weight:700;color:var(--sem-color-text-gray-inverted)}
+
+/* ============================================================
+   Celebratory six-pack card (KDS values)
+   ============================================================ */
+#card-list{display:flex;flex-direction:column;gap:var(--sem-spacing-8);width:100%}
+.card-slot{container-type:inline-size;width:100%}
+.card{width:100%;border:1px solid var(--sem-color-border-container-lowest);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;background:transparent}
+
+.photo{position:relative;height:121px;margin-bottom:-10px;border:1px solid var(--sem-color-border-absolute-alpha-gray);border-bottom:none;overflow:hidden;background:#0d0d0f}
+.card-body{position:relative;background:var(--sem-color-bg-container-lowest-default);border-radius:12px;display:flex;flex-direction:column;z-index:2}
+
+.mkt-header{display:flex;align-items:center;height:32px;gap:4px}
+.mkt-header .filler{flex:1 0 0;min-width:1px}
+.mkt-titles{flex:1 0 0;display:flex;gap:8px;align-items:center;max-width:740px;min-width:var(--market-section-min-width-six-pack);padding:0 12px 0 8px}
+.mkt-titles span{flex:1 0 0;min-width:40px;text-align:center;font-size:10px;line-height:12px;color:var(--sem-color-text-gray-subtle)}
+.hdr-divider{height:1px;background:var(--sem-color-fg-divider-soft);width:100%}
+
+.main{display:flex;align-items:center;position:relative;min-height:136px}
+.brand-vector{position:absolute;top:-1px;bottom:-1px;left:50%;transform:translateX(-50%);width:335px;z-index:1;pointer-events:none}
+.brand-vector img{width:100%;height:100%}
+.event{flex:1 0 0;min-width:1px;display:flex;flex-direction:column;align-self:stretch;position:relative;z-index:3}
+.match-info{display:flex;gap:8px;align-items:center;padding:12px 12px 0}
+.time-label{font-size:12px;line-height:16px;color:var(--sem-color-text-gray-subtle);display:flex;gap:4px;padding:0 2px;white-space:nowrap}
+.vdiv{width:1px;align-self:stretch;background:var(--sem-color-fg-divider-soft)}
+.mini-icons{display:flex;gap:4px;align-items:center}
+.mini-icons img{width:16px;height:16px}
+.participants{flex:1 0 0;display:flex;align-items:center;padding:4px 4px 4px 12px}
+.teams{flex:1 0 0;min-width:1px;display:flex;flex-direction:column;gap:4px}
+.team-row{display:flex;gap:4px;align-items:center;padding-right:8px}
+.team-row .logo{width:16px;height:16px;padding:2px;flex:none}
+.team-row .logo img{width:100%;height:100%;object-fit:contain}
+.team-row .name{font-family:var(--font-nichrome);font-variation-settings:"wdth" 62,"wght" 620;font-size:16px;line-height:20px;text-transform:uppercase;color:var(--sem-color-text-gray-emphasis);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.teams .hdiv{height:1px;background:var(--sem-color-fg-divider-bold);margin:6px 0}
+.tappable{display:flex;padding:0 12px 12px}
+.tappable img{width:16px;height:16px}
+
+.markets{flex:1 0 0;max-width:740px;min-width:var(--market-section-min-width-six-pack);display:flex;gap:8px;align-items:center;padding:12px 12px 12px 8px;position:relative;z-index:2}
+.mcol{flex:1 0 0;min-width:1px;display:flex;flex-direction:column;gap:8px}
+.sel-btn{background:var(--sem-color-bg-off-gray-subtle-default);border:1px solid var(--sem-color-border-off-gray-pale);border-radius:var(--sem-border-radius-8);height:var(--odd-selection-max-height-six-pack);min-width:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 4px;cursor:pointer}
+.sel-btn:hover{border-color:var(--sem-color-border-container-medium)}
+.sel-btn .line{font-family:var(--font-ubuntu-sans);font-weight:450;font-size:12px;line-height:16px;color:var(--sem-color-text-gray-emphasis);white-space:nowrap}
+.sel-btn .odds{font-family:var(--font-ubuntu-sans);font-weight:750;font-size:14px;line-height:20px;color:var(--sem-color-text-highlight)}
+
+.footnote{border-top:1px solid var(--sem-color-fg-divider-soft)}
+.footnote p{font-size:11px;line-height:12px;color:var(--sem-color-text-gray-subtle);padding:8px 14px}
+
+/* ============================================================
+   OPTION A — anchored players + ambient fill
+   ============================================================ */
+.opt-a .photo .ambient{position:absolute;inset:-24px;background:var(--img,url(assets/hero.png)) center 20%/cover;filter:blur(22px) saturate(1.15) brightness(.72)}
+.opt-a .photo .fg{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:520px;max-width:100%}
+.opt-a .photo .fg img{width:100%;height:305px;margin-top:-4px;object-fit:cover;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
+
+/* ============================================================
+   OPTION B — side hero (container query on the card slot)
+   Mobile / narrow: plain cover photo, no blur.
+   ============================================================ */
+.opt-b .photo .ambient{display:none}
+.opt-b .photo .fg{position:absolute;inset:0}
+.opt-b .photo .fg img{width:100%;height:100%;object-fit:cover}
+.opt-b .side-photo{display:none}
+
+@container (min-width: 720px){
+  /* per Figma 105:61546 — rounded photo panel, no gradient;
+     the white card body overlaps it by 16px */
+  .opt-b .card.has-photo{flex-direction:row;align-items:stretch}
+  .opt-b .card.has-photo .photo{display:none}
+  .opt-b .card.has-photo .side-photo{display:block;position:relative;width:184px;margin-right:-16px;flex:none;overflow:hidden;border-radius:12px;border:1px solid var(--sem-color-border-absolute-alpha-gray)}
+  .opt-b .card.has-photo .side-photo img{position:absolute;top:-3%;left:0;width:100%;height:123%;object-fit:cover}
+  .opt-b .card.has-photo .card-body{flex:1 1 auto;min-width:0;border-radius:12px;margin-bottom:0;position:relative;z-index:2;background:var(--sem-color-bg-container-lowest-default)}
+}
+
+/* ============================================================
+   OPTION C — player figures top left (Figma 68:36436 / 93:31100)
+   Fixed-size cutout overlapping the card, white fade into it.
+   ============================================================ */
+.opt-c .card-slot{position:relative}
+.opt-c .card-slot:has(.figures){padding-top:32px}
+.opt-c .figures{position:absolute;top:0;left:0;width:124px;height:64px;overflow:hidden;z-index:5;pointer-events:none}
+.opt-c .figures img{position:absolute;top:7.4%;height:137.5%;width:auto}
+/* align the visible figures to the same x (~8px) — the cutouts carry different transparent padding */
+.opt-c .figures img[src*="figures-3"]{left:8px;height:152%;top:2%}
+.opt-c .figures img[src*="figures-2"]{left:8px}
+.opt-c .card{overflow:visible}
+.opt-c .card .card-body{border-radius:12px;overflow:hidden}
+
+/* ============================================================
+   Bottom navigation
+   ============================================================ */
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;flex-direction:column;height:76px}
+.navbar{background:var(--sem-color-bg-section);border-top:1px solid var(--sem-color-border-section);display:flex;gap:var(--spacing-space-s);align-items:center;flex:1 1 auto}
+.nav-tab{flex:1 0 0;min-width:1px;height:56px;display:flex;flex-direction:column;gap:2px;align-items:center;justify-content:center;padding:2px;cursor:pointer}
+.nav-tab .icon-wrap{height:28px;width:44px;display:flex;align-items:center;justify-content:center;border-radius:16px}
+.nav-tab .icon-wrap img{width:24px;height:24px}
+.nav-tab span{font-size:10px;line-height:12px;font-weight:700;color:var(--sem-color-text-gray-soft)}
+.nav-tab.active .icon-wrap{background:var(--sem-color-bg-primary-pale);border:1px solid var(--sem-color-border-primary-soft)}
+.nav-tab.active span{color:var(--sem-color-text-primary)}
+.nav-view{align-self:stretch;width:56px;flex:none;display:flex;align-items:center;justify-content:center;border-left:1px solid var(--sem-color-border-gray-pale);border-radius:32px 0 0 32px;background:linear-gradient(90deg,var(--sem-color-bg-gray-medium-default),var(--sem-color-bg-gray-subtle-default))}
+.nav-view img{width:34px;height:34px}
+.home-bar{background:var(--sem-color-bg-section);height:20px;display:flex;align-items:center;justify-content:center}
+.home-bar i{display:block;width:120px;height:4px;border-radius:100px;background:var(--sem-color-fg-gray-emphasis)}
+
+/* ============================================================
+   Prototype switcher (chrome for the demo, not part of the design)
+   ============================================================ */
+.proto-switch{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:70;display:flex;gap:2px;padding:3px;background:rgba(21,25,35,.85);border-radius:100px;backdrop-filter:blur(6px);box-shadow:0 2px 8px rgba(9,9,21,.25)}
+.proto-switch .seg{font-size:12px;line-height:16px;font-weight:500;color:#fff;text-decoration:none;padding:4px 14px;border-radius:100px;white-space:nowrap}
+.proto-switch .seg.active{background:#fff;color:#151923;font-weight:700}
+.proto-switch .seg:not(.active):hover{background:rgba(255,255,255,.15)}
+
+/* ============================================================
+   Desktop screen (>=1200px) — Figma node 106:17843
+   ============================================================ */
+.desktop-only{display:none}
+
+/* thin app header */
+.desktop-header{position:sticky;top:0;z-index:40;background:var(--sem-color-bg-primary-default);height:64px;align-items:center;justify-content:space-between}
+.dh-left{display:flex;align-items:center;gap:16px;padding-left:16px;height:100%}
+.dh-left .wordmark{width:108px;height:32px}
+.dh-tabs{display:flex;gap:16px;align-items:center;height:100%}
+.dh-tab{position:relative;height:64px;display:flex;align-items:center;gap:4px;font-size:12px;line-height:16px;color:var(--sem-color-text-absolute-white);white-space:nowrap;cursor:pointer}
+.dh-tab.active{font-weight:700}
+.dh-tab.active::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:url(assets/desktop/tab-underline.svg) center/100% 100% no-repeat}
+.dh-badge{font-style:normal;background:var(--sem-color-bg-secondary-default);color:var(--sem-color-text-absolute-white);font-size:9px;line-height:12px;font-weight:700;padding:1px 4px;border-radius:var(--sem-border-radius-8)}
+
+/* layout: side nav | center | right column */
+.layout{display:block}
+.breadcrumbs{align-items:center;gap:4px;padding:4px 24px 4px 16px;font-size:12px;line-height:16px;color:var(--sem-color-text-gray-subtle)}
+.breadcrumbs img{width:8px;height:8px}
+.breadcrumbs .crumb.last{color:var(--sem-color-text-gray-emphasis)}
+
+/* laptop icon rail (826-1280px) */
+.side-rail{width:40px;flex:none;background:var(--sem-color-bg-section);border-right:1px solid var(--sem-color-border-section);flex-direction:column}
+.side-rail .ri{width:40px;height:40px;padding:8px;cursor:pointer}
+.side-rail .ri img{width:24px;height:24px;display:block}
+.side-rail .ri:hover{background:var(--sem-color-bg-gray-soft-default)}
+.side-rail hr{border:0;border-top:1px solid var(--sem-color-fg-divider-soft);width:100%;margin:0}
+
+/* left side nav (>=1281px) */
+.side-nav{width:200px;flex:none;background:var(--sem-color-bg-section);border-right:1px solid var(--sem-color-border-section)}
+.sn-item{display:flex;align-items:center;gap:8px;min-height:40px;padding:8px;font-size:14px;line-height:16px;color:var(--sem-color-text-gray-emphasis);cursor:pointer}
+.sn-item:hover,.sn-item.active{background:var(--sem-color-bg-gray-soft-default)}
+.sn-item img.ic{width:24px;height:24px;flex:none}
+.sn-item .spacer{flex:1}
+.sn-item img.chev{width:16px;height:16px;flex:none}
+.sn-item.sn-plain{padding-left:8px}
+.sn-two{display:flex;flex-direction:column;justify-content:center;min-width:0;gap:2px}
+.sn-two .l1{font-size:14px;line-height:16px;color:var(--sem-color-text-gray-emphasis);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sn-two .l2{font-size:10px;line-height:12px;color:var(--sem-color-text-gray-subtle)}
+.sn-fav .sn-two .l1{color:var(--sem-color-text-sky)}
+.sn-head{display:flex;align-items:center;justify-content:space-between;min-height:40px;padding:8px;font-size:11px;line-height:12px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;color:var(--sem-color-text-gray-subtle)}
+.sn-head .icons{display:flex;gap:8px;align-items:center}
+.sn-head img{width:16px;height:16px}
+
+/* right column */
+.right-col{width:320px;flex:none;flex-direction:column;gap:8px;padding:8px}
+.bets-card{background:var(--sem-color-bg-container-lowest-default);border-radius:16px;overflow:hidden}
+.bets-title{padding:16px 0;border-bottom:1px solid var(--sem-color-border-gray-soft);text-align:center;font-size:12px;line-height:16px;color:var(--sem-color-text-gray-emphasis)}
+.view-switch-wrap{padding:8px;background:var(--sem-color-bg-container-lowest-default)}
+.view-switch{display:flex;gap:2px;padding:4px;background:var(--sem-color-bg-off-gray-medium-default);border-radius:100px;box-shadow:inset 0 1px 2px rgba(9,9,21,.2)}
+.vs-item{flex:1 0 0;min-width:1px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;line-height:16px;font-weight:500;color:var(--sem-color-text-gray-subtle);border-radius:100px;cursor:pointer}
+.vs-item.active{background:var(--sem-color-bg-absolute-white);color:var(--sem-color-text-absolute-black);box-shadow:0 2px 2px rgba(9,9,21,.2)}
+.bets-empty{background:var(--sem-color-bg-container-low-default);padding:8px;font-size:12px;line-height:16px;color:var(--sem-color-text-gray-subtle)}
+
+.mentor{border-radius:16px;overflow:hidden;background:var(--sem-color-bg-container-lowest-default)}
+.mentor-banner{position:relative;height:32px;background:var(--sem-color-bg-absolute-black);display:flex;align-items:center;padding-left:8px;gap:8px;color:var(--sem-color-text-absolute-white);font-size:13.5px;font-weight:700}
+.mentor-banner img.info{width:16px;height:16px;position:relative;z-index:1}
+.mentor-banner img.bg{position:absolute;right:0;top:0;height:33px;width:72px;object-fit:cover}
+.mentor-body{padding:16px 8px 4px;display:flex;flex-direction:column;gap:8px}
+.mentor-label{font-size:12px;line-height:16px;font-weight:500;color:var(--sem-color-text-gray-emphasis)}
+.mentor-input{height:34px;border:1px solid var(--sem-color-border-gray-bold);border-radius:8px;padding:8px;font-size:14px;line-height:16px;display:flex;align-items:center}
+.mentor-grid{display:flex;flex-direction:column;gap:8px}
+.mentor-row{display:flex;gap:8px}
+.m-btn{flex:1 0 0;min-width:1px;height:36px;display:flex;align-items:center;justify-content:center;font-size:14px;line-height:16px;font-weight:500;border-radius:8px;background:var(--sem-color-bg-off-gray-subtle-default);border:1px solid var(--sem-color-border-off-black-pale);color:var(--sem-color-text-gray-emphasis);cursor:pointer}
+.m-btn.sel{background:var(--sem-color-bg-primary-default);border-color:var(--sem-color-border-primary-bold);color:var(--sem-color-text-absolute-white)}
+.m-cta{height:36px;border-radius:8px;background:var(--sem-color-bg-gray-emphasis-default);color:var(--sem-color-text-gray-inverted);display:flex;align-items:center;justify-content:center;font-size:14px;line-height:16px;font-weight:500;cursor:pointer;margin-bottom:4px}
+
+.panel{background:var(--sem-color-bg-container-lowest-default);border-radius:16px;padding:8px;display:flex;flex-direction:column;gap:8px}
+.mini-banner{width:100%;border-radius:8px;display:block}
+.offers-head{font-size:14px;line-height:20px;font-weight:700;color:var(--sem-color-text-gray-emphasis)}
+.offer{display:flex;gap:8px;align-items:center;padding:8px 0}
+.offer + .offer{border-top:1px solid var(--sem-color-fg-divider-soft)}
+.offer img.media{width:72px;height:104px;border-radius:8px;object-fit:cover;flex:none}
+.offer .oc{flex:1 0 0;min-width:1px;height:104px;display:flex;flex-direction:column;justify-content:space-between}
+.offer .label{display:flex;gap:4px;align-items:center}
+.offer .label .badge{width:18px;height:18px;border-radius:100px;background:var(--sem-color-bg-absolute-black);border:1px solid var(--sem-color-border-primary-bold);display:flex;align-items:center;justify-content:center;flex:none}
+.offer .label .badge img{width:10px;height:10px}
+.offer .label > span:last-child{font-size:11px;line-height:12px;font-weight:700;color:var(--sem-color-text-gray-emphasis)}
+.offer .title{font-size:16px;line-height:20px;font-weight:700;color:var(--sem-color-text-gray-emphasis);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:4px}
+.offer .btn{display:inline-flex;gap:4px;align-items:center;padding:4px 8px;border:1px solid var(--sem-color-border-gray-subtle);border-radius:8px;font-size:12px;line-height:16px;align-self:flex-start;cursor:pointer}
+.offer .btn .dim{color:var(--sem-color-text-gray-subtle-offers)}
+.offer .btn b{color:var(--sem-color-text-gray-emphasis)}
+.offer .btn b.dim{color:var(--sem-color-text-gray-subtle-offers)}
+.offer .btn img{width:16px;height:16px}
+
+/* Laptop (826-1280px) and Desktop (>=1281px) share the shell;
+   only the left-hand navigation differs: icon rail vs full side nav. */
+@media (min-width:826px){
+  .mobile-only{display:none !important}
+  .desktop-header{display:flex}
+  .breadcrumbs{display:flex}
+  .side-rail{display:flex}
+  .right-col{display:flex}
+  .layout{display:flex;align-items:flex-start}
+  .center{flex:1 1 auto;min-width:0}
+  .league-inner{max-width:none}
+  .content{max-width:none}
+  .body-area{padding-bottom:24px}
+  .proto-switch{top:72px}
+}
+@media (min-width:1281px){
+  .side-rail{display:none}
+  .side-nav{display:block}
+}

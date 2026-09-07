@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celebratory six-pack — Option C (player figures top left)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Ubuntu+Sans:ital,wght@0,400..800;1,400..800&family=Archivo:wdth,wght@62..125,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=7">
+</head>
+<body class="opt-c">
+<div class="screen">
+
+  <!-- App header -->
+  <header class="app-header mobile-only">
+    <div class="status-bar">
+      <img class="time" src="assets/status-time.svg" alt="">
+      <img class="items" src="assets/status-items.svg" alt="">
+    </div>
+    <div class="header-content">
+      <div class="header-left">
+        <img src="assets/chevron-left.svg" alt="Back">
+      </div>
+      <div class="header-right">
+        <img src="assets/header-offer.svg" alt="Offers">
+        <img src="assets/header-search.svg" alt="Search">
+        <div class="balance-pill">
+          <img class="acct" src="assets/header-account.svg" alt="">
+          <div class="amount"><span>$</span><span>0,00</span></div>
+          <button class="deposit-btn">DEPOSIT</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Desktop app header (>=1200px) -->
+  <header id="desktop-header" class="desktop-header desktop-only"></header>
+
+  <div class="layout">
+  <aside id="side-rail" class="side-rail desktop-only"></aside>
+  <aside id="side-nav" class="side-nav desktop-only"></aside>
+  <div class="center">
+  <div id="breadcrumbs" class="breadcrumbs desktop-only"></div>
+
+  <!-- League section header -->
+  <section class="league-header">
+    <div class="theme"><img class="watermark" src="assets/betano-watermark.svg" alt=""></div>
+    <div class="league-inner">
+      <div class="sports-picker mobile-only">
+        <div class="sport-tab"><img src="assets/sport-soccer.svg" alt=""><span>Soccer</span></div>
+        <div class="sport-tab active"><img src="assets/sport-basketball.svg" alt=""><span>Basketball</span></div>
+        <div class="sport-tab"><img src="assets/sport-tennis.svg" alt=""><span>Tennis</span></div>
+        <div class="sport-tab"><img src="assets/sport-baseball.svg" alt=""><span>Baseball</span></div>
+        <div class="sport-tab"><img src="assets/sport-volleyball.svg" alt=""><span>Volleyball</span></div>
+        <div class="sport-tab"><img src="assets/sport-table-tennis.svg" alt=""><span>Table Tennis</span></div>
+        <div class="sport-tab"><img src="assets/sport-cricket.svg" alt=""><span>Cricket</span></div>
+        <div class="sport-tab"><img src="assets/sport-american-football.svg" alt=""><span>American Football</span></div>
+      </div>
+      <div class="league-info">
+        <div class="league-icon"><img src="assets/league-nba.svg" alt=""></div>
+        <h1>NBA</h1>
+        <img class="caret" src="assets/arrow-fill-down.svg" alt="">
+      </div>
+      <div class="tab-row">
+        <div class="tab-chip active">Popular</div>
+        <div class="tab-chip">Matches</div>
+        <div class="tab-chip">Outrights</div>
+        <div class="tab-chip">Standings</div>
+        <div class="tab-chip">Smart Picks</div>
+        <div class="tab-chip">Top Players</div>
+        <div class="tab-chip">Teams</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Body -->
+  <main class="body-area">
+    <div class="content">
+      <div class="section-1">
+        <div class="bb-switcher">
+          <div class="bb-tab active">Main Market</div>
+          <div class="bb-tab"><span class="bb-badge"><span>BB</span></span>Bet Builder+</div>
+        </div>
+
+        <div id="card-list"></div>
+      </div>
+    </div>
+  </main>
+  </div>
+  <aside id="right-col" class="right-col desktop-only"></aside>
+  </div>
+
+  <!-- Bottom navigation -->
+  <nav class="bottom-nav mobile-only">
+    <div class="navbar">
+      <div class="nav-tab"><span class="icon-wrap"><img src="assets/nav-home.svg" alt=""></span><span>Home</span></div>
+      <div class="nav-tab"><span class="icon-wrap"><img src="assets/nav-live.svg" alt=""></span><span>Live</span></div>
+      <div class="nav-tab active"><span class="icon-wrap"><img src="assets/nav-sports.svg" alt=""></span><span>Sports</span></div>
+      <div class="nav-tab"><span class="icon-wrap"><img src="assets/nav-bets.svg" alt=""></span><span>Bets</span></div>
+      <div class="nav-tab"><span class="icon-wrap"><img src="assets/nav-explore.svg" alt=""></span><span>Explore</span></div>
+      <div class="nav-view"><img src="assets/nav-casino.svg" alt=""></div>
+    </div>
+    <div class="home-bar"><i></i></div>
+  </nav>
+
+  <div class="proto-switch"><a href="option-a.html" class="seg">Option A</a><a href="option-b.html" class="seg">Option B</a><a href="option-c.html" class="seg active">Option C</a></div>
+</div>
+<script src="cards.js?v=7"></script>
+<script src="desktop.js?v=7"></script>
+</body>
+</html>
