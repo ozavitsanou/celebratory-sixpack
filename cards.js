@@ -1,25 +1,25 @@
 /* Renders the celebratory six-pack cards into #card-list.
    The photo treatment comes from the <body> class:
-   opt-a (ambient fill), opt-b (side hero), opt-c (player figures top left). */
+   opt-a (ambient fill), opt-b (player figures top left). */
 
 const CARDS = [
   {
     teams: [{ logo: 'assets/pistons.png', name: 'DET Pistons' }, { logo: 'assets/celtics.png', name: 'BOS Celtics' }],
     time: ['20/10', '22.00'],
     odds: [['1.80', '2.00'], [['-1.5', '1.87'], ['+1.5', '1.85']], [['O 222.2', '1.87'], ['U 222.2', '1.85']]],
-    photo: { img: 'assets/hero.png', band: '50% 14%', side: '62% 18%', figures: 'assets/figures-3.png' }
+    photo: { img: 'assets/hero.png', band: '50% 14%', figures: 'assets/figures-3.png' }
   },
   {
     teams: [{ logo: 'assets/pistons.png', name: 'NY Knicks' }, { logo: 'assets/celtics.png', name: 'PHI 76ers' }],
     time: ['20/10', '22.00'],
     odds: [['2.10', '1.65'], [['-1.5', '1.45'], ['+1.5', '2.50']], [['O 222.2', '3.20'], ['U 222.2', '1.30']]],
-    photo: { img: 'assets/hero-2.png', band: '50% 12%', side: '50% 10%', figures: 'assets/figures-2.png' }
+    photo: { img: 'assets/hero-2.png', band: '50% 12%', figures: 'assets/figures-2.png' }
   },
   {
     teams: [{ logo: 'assets/pistons.png', name: 'SA Spurs' }, { logo: 'assets/celtics.png', name: 'OKC Thunder' }],
     time: ['20/10', '22.00'],
     odds: [['1.55', '2.30'], [['-1.5', '2.75'], ['+1.5', '1.40']], [['O 222.2', '1.95'], ['U 222.2', '1.78']]],
-    photo: { img: 'assets/hero-3.png', band: '48% 22%', side: '44% 15%', figures: 'assets/figures-2.png' }
+    photo: { img: 'assets/hero-3.png', band: '48% 22%', figures: 'assets/figures-2.png' }
   },
   {
     teams: [{ logo: 'assets/pistons.png', name: 'MIN Timberwolves' }, { logo: 'assets/celtics.png', name: 'OKC Thunder' }],
@@ -44,12 +44,9 @@ function selBtn(cell) {
 
 function cardHTML(c, mode) {
   const photoParts = [];
-  if (c.photo && mode === 'opt-c') {
+  if (c.photo && mode === 'opt-b') {
     photoParts.push(`<div class="figures"><img src="${c.photo.figures}" alt=""></div>`);
   } else if (c.photo) {
-    if (mode === 'opt-b') {
-      photoParts.push(`<div class="side-photo"><img src="${c.photo.img}" style="object-position:${c.photo.side}" alt=""></div>`);
-    }
     photoParts.push(`<div class="photo" style="--img:url(${c.photo.img})"><div class="ambient"></div><div class="fg"><img src="${c.photo.img}" style="object-position:${c.photo.band}" alt=""></div></div>`);
   }
   return `
@@ -93,6 +90,6 @@ function cardHTML(c, mode) {
 
 (function () {
   const list = document.getElementById('card-list');
-  const mode = document.body.classList.contains('opt-c') ? 'opt-c' : document.body.classList.contains('opt-b') ? 'opt-b' : 'opt-a';
+  const mode = document.body.classList.contains('opt-b') ? 'opt-b' : 'opt-a';
   list.innerHTML = CARDS.map(c => cardHTML(c, mode)).join('\n');
 })();

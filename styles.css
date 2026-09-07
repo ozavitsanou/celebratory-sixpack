@@ -195,37 +195,20 @@ img{display:block}
   mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
 
 /* ============================================================
-   OPTION B — side hero (container query on the card slot)
-   Mobile / narrow: plain cover photo, no blur.
-   ============================================================ */
-.opt-b .photo .ambient{display:none}
-.opt-b .photo .fg{position:absolute;inset:0}
-.opt-b .photo .fg img{width:100%;height:100%;object-fit:cover}
-.opt-b .side-photo{display:none}
-
-@container (min-width: 720px){
-  /* per Figma 105:61546 — rounded photo panel, no gradient;
-     the white card body overlaps it by 16px */
-  .opt-b .card.has-photo{flex-direction:row;align-items:stretch}
-  .opt-b .card.has-photo .photo{display:none}
-  .opt-b .card.has-photo .side-photo{display:block;position:relative;width:184px;margin-right:-16px;flex:none;overflow:hidden;border-radius:12px;border:1px solid var(--sem-color-border-absolute-alpha-gray)}
-  .opt-b .card.has-photo .side-photo img{position:absolute;top:-3%;left:0;width:100%;height:123%;object-fit:cover}
-  .opt-b .card.has-photo .card-body{flex:1 1 auto;min-width:0;border-radius:12px;margin-bottom:0;position:relative;z-index:2;background:var(--sem-color-bg-container-lowest-default)}
-}
-
-/* ============================================================
-   OPTION C — player figures top left (Figma 68:36436 / 93:31100)
+   OPTION B — player figures top left (Figma 68:36436 / 93:31100)
    Fixed-size cutout overlapping the card, white fade into it.
    ============================================================ */
-.opt-c .card-slot{position:relative}
-.opt-c .card-slot:has(.figures){padding-top:32px}
-.opt-c .figures{position:absolute;top:0;left:0;width:124px;height:64px;overflow:hidden;z-index:5;pointer-events:none}
-.opt-c .figures img{position:absolute;top:7.4%;height:137.5%;width:auto}
+.opt-b .card-slot{position:relative}
+.opt-b .card-slot:has(.figures){padding-top:32px}
+.opt-b .figures{position:absolute;top:0;left:0;width:124px;height:64px;overflow:hidden;z-index:5;pointer-events:none}
+/* sem/color/overlay/gray/pale none -> emphasis: white fade where the figures meet the card */
+.opt-b .figures::after{content:"";position:absolute;inset:0;background:linear-gradient(179deg,rgba(255,255,255,0) 81.62%,#fff 99.35%)}
+.opt-b .figures img{position:absolute;top:7.4%;height:137.5%;width:auto}
 /* align the visible figures to the same x (~8px) — the cutouts carry different transparent padding */
-.opt-c .figures img[src*="figures-3"]{left:8px;height:152%;top:2%}
-.opt-c .figures img[src*="figures-2"]{left:8px}
-.opt-c .card{overflow:visible}
-.opt-c .card .card-body{border-radius:12px;overflow:hidden}
+.opt-b .figures img[src*="figures-3"]{left:8px;height:152%;top:2%}
+.opt-b .figures img[src*="figures-2"]{left:8px}
+.opt-b .card{overflow:visible}
+.opt-b .card .card-body{border-radius:12px;overflow:hidden}
 
 /* ============================================================
    Bottom navigation
@@ -350,6 +333,10 @@ img{display:block}
   .content{max-width:none}
   .body-area{padding-bottom:24px}
   .proto-switch{top:72px}
+  /* laptop + desktop: cards without pictures — photo band (A) and figures (B) are mobile only */
+  .opt-a .photo{display:none}
+  .opt-b .figures{display:none}
+  .opt-b .card-slot:has(.figures){padding-top:0}
 }
 @media (min-width:1281px){
   .side-rail{display:none}
