@@ -189,10 +189,16 @@ img{display:block}
    OPTION A — anchored players + ambient fill
    ============================================================ */
 .opt-a .photo .ambient{position:absolute;inset:-24px;background:var(--img,url(assets/hero.png)) center 20%/cover;filter:blur(22px) saturate(1.15) brightness(.72)}
-.opt-a .photo .fg{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:520px;max-width:100%}
+.opt-a .photo .fg{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:340px;max-width:100%}
 .opt-a .photo .fg img{width:100%;height:305px;margin-top:-4px;object-fit:cover;
   -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);
   mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
+/* up to 340px the art covers the whole band — no blur needed */
+@container (max-width: 340px){
+  .opt-a .photo .ambient{display:none}
+  .opt-a .photo .fg{width:100%}
+  .opt-a .photo .fg img{-webkit-mask-image:none;mask-image:none}
+}
 
 /* ============================================================
    OPTION B — player figures top left (Figma 68:36436 / 93:31100)
@@ -333,7 +339,9 @@ img{display:block}
   .content{max-width:none}
   .body-area{padding-bottom:24px}
   .proto-switch{top:72px}
-  /* laptop + desktop: cards without pictures — photo band (A) and figures (B) are mobile only */
+}
+/* pictures live on the cards up to 1024px; above that the cards are plain */
+@media (min-width:1025px){
   .opt-a .photo{display:none}
   .opt-b .figures{display:none}
   .opt-b .card-slot:has(.figures){padding-top:0}
