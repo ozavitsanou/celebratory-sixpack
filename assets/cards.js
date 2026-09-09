@@ -65,7 +65,7 @@ function cardHTML(c, mode) {
             <div class="match-info">
               <div class="time-label">${c.time.map(t => `<span>${t}</span>`).join('')}</div>
               <div class="vdiv"></div>
-              <div class="mini-icons"><img src="assets/play-icon.svg" alt=""><img src="assets/offer-icon.svg" alt=""></div>
+              <div class="mini-icons"><img src="assets/play-icon.svg" alt=""></div>
             </div>
             <div class="participants">
               <div class="teams">
