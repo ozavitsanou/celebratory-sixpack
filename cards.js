@@ -7,19 +7,19 @@ const CARDS = [
     teams: [{ logo: 'assets/pistons.png', name: 'DET Pistons' }, { logo: 'assets/celtics.png', name: 'BOS Celtics' }],
     time: ['20/10', '22.00'],
     odds: [['1.80', '2.00'], [['-1.5', '1.87'], ['+1.5', '1.85']], [['O 222.2', '1.87'], ['U 222.2', '1.85']]],
-    photo: { img: 'assets/hero.png', band: '50% 14%', figures: 'assets/figures-3.png' }
+    photo: { img: 'assets/hero.png', band: '50% 50%', figures: 'assets/figures-3.png' }
   },
   {
     teams: [{ logo: 'assets/pistons.png', name: 'NY Knicks' }, { logo: 'assets/celtics.png', name: 'PHI 76ers' }],
     time: ['20/10', '22.00'],
     odds: [['2.10', '1.65'], [['-1.5', '1.45'], ['+1.5', '2.50']], [['O 222.2', '3.20'], ['U 222.2', '1.30']]],
-    photo: { img: 'assets/hero-2.png', band: '50% 12%', figures: 'assets/figures-2.png' }
+    photo: { img: 'assets/hero-2.png', band: '50% 50%', figures: 'assets/figures-2.png' }
   },
   {
     teams: [{ logo: 'assets/pistons.png', name: 'SA Spurs' }, { logo: 'assets/celtics.png', name: 'OKC Thunder' }],
     time: ['20/10', '22.00'],
     odds: [['1.55', '2.30'], [['-1.5', '2.75'], ['+1.5', '1.40']], [['O 222.2', '1.95'], ['U 222.2', '1.78']]],
-    photo: { img: 'assets/hero-3.png', band: '48% 22%', figures: 'assets/figures-2.png' }
+    photo: { img: 'assets/hero-3.png', band: '50% 0%', figures: 'assets/figures-2.png' }
   },
   {
     teams: [{ logo: 'assets/pistons.png', name: 'MIN Timberwolves' }, { logo: 'assets/celtics.png', name: 'OKC Thunder' }],
@@ -65,7 +65,7 @@ function cardHTML(c, mode) {
             <div class="match-info">
               <div class="time-label">${c.time.map(t => `<span>${t}</span>`).join('')}</div>
               <div class="vdiv"></div>
-              <div class="mini-icons"><img src="assets/play-icon.svg" alt=""><img src="assets/offer-icon.svg" alt=""></div>
+              <div class="mini-icons"><img src="assets/play-icon.svg" alt=""></div>
             </div>
             <div class="participants">
               <div class="teams">
