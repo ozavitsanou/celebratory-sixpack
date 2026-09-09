@@ -361,6 +361,8 @@ img{display:block}
   .opt-a .photo{display:none}
   .opt-b .figures{display:none}
   .opt-b .card-slot:has(.figures){padding-top:0}
+  /* no photo/figures above the divider at this width, so the ribbon sits right at the header height */
+  .opt-a .promo-ribbon,.opt-b .promo-ribbon{top:32px}
 }
 @media (min-width:1281px){
   .side-rail{display:none}
