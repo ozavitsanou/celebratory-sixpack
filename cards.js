@@ -7,13 +7,15 @@ const CARDS = [
     teams: [{ logo: 'assets/pistons.png', name: 'DET Pistons' }, { logo: 'assets/celtics.png', name: 'BOS Celtics' }],
     time: ['20/10', '22.00'],
     odds: [['1.80', '2.00'], [['-1.5', '1.87'], ['+1.5', '1.85']], [['O 222.2', '1.87'], ['U 222.2', '1.85']]],
-    photo: { img: 'assets/hero.png', band: '50% 50%', figures: 'assets/figures-3.png' }
+    photo: { img: 'assets/hero.png', band: '50% 50%', figures: 'assets/figures-3.png' },
+    ribbon: true
   },
   {
     teams: [{ logo: 'assets/pistons.png', name: 'NY Knicks' }, { logo: 'assets/celtics.png', name: 'PHI 76ers' }],
     time: ['20/10', '22.00'],
     odds: [['2.10', '1.65'], [['-1.5', '1.45'], ['+1.5', '2.50']], [['O 222.2', '3.20'], ['U 222.2', '1.30']]],
-    photo: { img: 'assets/hero-2.png', band: '50% 50%', figures: 'assets/figures-2.png' }
+    photo: { img: 'assets/hero-2.png', band: '50% 50%', figures: 'assets/figures-2.png' },
+    ribbon: true
   },
   {
     teams: [{ logo: 'assets/pistons.png', name: 'SA Spurs' }, { logo: 'assets/celtics.png', name: 'OKC Thunder' }],
@@ -42,6 +44,15 @@ function selBtn(cell) {
   return `<div class="sel-btn"><span class="odds">${cell}</span></div>`;
 }
 
+function ribbonHTML() {
+  return `<div class="promo-ribbon">
+        <div class="pr-lead"><img src="assets/ribbon-lead-icon.svg" alt=""></div>
+        <div class="pr-end"><img src="assets/ribbon-end.svg" alt=""></div>
+        <div class="pr-offer"><img src="assets/ribbon-bb-icon.svg" alt=""><span>BB Boost 25%</span></div>
+        <div class="pr-edge"><img src="assets/ribbon-right-edge.svg" alt=""></div>
+      </div>`;
+}
+
 function cardHTML(c, mode) {
   const photoParts = [];
   if (c.photo && mode === 'opt-b') {
@@ -53,6 +64,7 @@ function cardHTML(c, mode) {
   <div class="card-slot">
     <div class="card ${c.photo ? 'has-photo' : 'no-photo'}">
       ${photoParts.join('\n      ')}
+      ${c.ribbon ? ribbonHTML() : ''}
       <div class="card-body">
         <div class="mkt-header">
           <div class="filler"></div>

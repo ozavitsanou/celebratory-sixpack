@@ -146,6 +146,7 @@ img{display:block}
 #card-list{display:flex;flex-direction:column;gap:var(--sem-spacing-8);width:100%}
 .card-slot{container-type:inline-size;width:100%}
 .card{width:100%;border:1px solid var(--sem-color-border-container-lowest);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;background:transparent}
+.opt-a .card-slot{position:relative}
 
 .photo{position:relative;height:121px;margin-bottom:-10px;border:1px solid var(--sem-color-border-absolute-alpha-gray);border-bottom:none;overflow:hidden;background:#0d0d0f}
 .card-body{position:relative;background:var(--sem-color-bg-container-lowest-default);border-radius:12px;display:flex;flex-direction:column;z-index:2}
@@ -160,7 +161,9 @@ img{display:block}
    Promo ribbon — sits centered on the header divider, left-aligned
    (Figma 194:90410)
    ============================================================ */
-.promo-ribbon{position:absolute;left:12px;top:32px;transform:translateY(-50%);display:flex;align-items:center;z-index:4;filter:drop-shadow(1px 4px 2px rgba(21,25,35,.1));pointer-events:none}
+.promo-ribbon{position:absolute;left:12px;transform:translateY(-50%);display:flex;align-items:center;z-index:6;filter:drop-shadow(1px 4px 2px rgba(21,25,35,.1));pointer-events:none}
+.opt-a .promo-ribbon{top:143px}
+.opt-b .promo-ribbon{top:64px}
 .promo-ribbon .pr-lead{background:#fff;display:flex;align-items:center;justify-content:center;height:20px;padding:0 4px 0 8px}
 .promo-ribbon .pr-lead img{width:14px;height:14px;display:block}
 .promo-ribbon .pr-end,.promo-ribbon .pr-edge{width:3px;height:20px;display:block;flex:none}
