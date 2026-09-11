@@ -7,25 +7,25 @@ const CARDS = [
     teams: [{ logo: 'assets/pistons.png', name: 'DET Pistons' }, { logo: 'assets/celtics.png', name: 'BOS Celtics' }],
     time: ['20/10', '22.00'],
     odds: [['1.80', '2.00'], [['-1.5', '1.87'], ['+1.5', '1.85']], [['O 222.2', '1.87'], ['U 222.2', '1.85']]],
-    photo: { img: 'assets/hero.png', band: '50% 50%', figures: 'assets/figures-3.png' },
+    photo: { img: 'assets/hero.png', band: '50% 0%', figures: 'assets/figures-3.png' },
     ribbon: true
   },
   {
-    teams: [{ logo: 'assets/pistons.png', name: 'NY Knicks' }, { logo: 'assets/celtics.png', name: 'PHI 76ers' }],
+    teams: [{ logo: 'assets/knicks.png', name: 'NY Knicks' }, { logo: 'assets/sixers.png', name: 'PHI 76ers' }],
     time: ['20/10', '22.00'],
     odds: [['2.10', '1.65'], [['-1.5', '1.45'], ['+1.5', '2.50']], [['O 222.2', '3.20'], ['U 222.2', '1.30']]],
-    photo: { img: 'assets/hero-2.png', band: '50% 50%', figures: 'assets/figures-2.png' },
+    photo: { img: 'assets/hero-2.png', band: '50% 0%', figures: 'assets/figures-2.png' },
     ribbon: true
   },
   {
-    teams: [{ logo: 'assets/pistons.png', name: 'SA Spurs' }, { logo: 'assets/celtics.png', name: 'OKC Thunder' }],
+    teams: [{ logo: 'assets/spurs.png', name: 'SA Spurs' }, { logo: 'assets/thunder.png', name: 'OKC Thunder' }],
     time: ['20/10', '22.00'],
     odds: [['1.55', '2.30'], [['-1.5', '2.75'], ['+1.5', '1.40']], [['O 222.2', '1.95'], ['U 222.2', '1.78']]],
-    photo: { img: 'assets/hero-3.png', band: '50% 0%', figures: 'assets/figures-2.png' }
+    photo: { img: 'assets/hero-3.png', band: '50% 50%', figures: 'assets/figures-4.png', flat: true }
   },
   {
-    teams: [{ logo: 'assets/pistons.png', name: 'MIN Timberwolves' }, { logo: 'assets/celtics.png', name: 'OKC Thunder' }],
-    time: ['21/10', '22.00'],
+    teams: [{ logo: 'assets/timberwolves.png', name: 'MIN Timberwolves' }, { logo: 'assets/thunder.png', name: 'OKC Thunder' }],
+    time: ['22.00'],
     odds: [['1.35', '3.00'], [['-1.5', '2.20'], ['+1.5', '1.62']], [['O 222.2', '1.48'], ['U 222.2', '2.55']]],
     photo: null
   },
@@ -57,7 +57,7 @@ function cardHTML(c, mode, cardIdx) {
   if (c.photo && mode === 'opt-b') {
     photoParts.push(`<div class="figures"><img src="${c.photo.figures}" alt=""></div>`);
   } else if (c.photo) {
-    photoParts.push(`<div class="photo" style="--img:url(${c.photo.img})"><div class="ambient"></div><div class="fg"><img src="${c.photo.img}" style="object-position:${c.photo.band}" alt=""></div></div>`);
+    photoParts.push(`<div class="photo${c.photo.flat ? ' flat' : ''}" style="--img:url(${c.photo.img})"><div class="ambient"></div><div class="fg"><img src="${c.photo.img}" style="object-position:${c.photo.band}" alt=""></div></div>`);
   }
   return `
   <div class="card-slot">

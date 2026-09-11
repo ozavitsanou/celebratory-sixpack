@@ -215,6 +215,9 @@ img{display:block}
   .opt-a .photo .fg{width:100%}
   .opt-a .photo .fg img{-webkit-mask-image:none;mask-image:none}
 }
+/* flat: source is already pre-cropped to the visible band's aspect ratio —
+   fill the true 121px window directly instead of the 305px cover+clip trick */
+.opt-a .photo.flat .fg img{height:100%;margin-top:0}
 
 /* ============================================================
    OPTION B — player figures top left (Figma 68:36436 / 93:31100)
@@ -226,9 +229,11 @@ img{display:block}
 /* sem/color/overlay/gray/pale none -> emphasis: white fade where the figures meet the card */
 .opt-b .figures::after{content:"";position:absolute;inset:0;background:linear-gradient(179deg,rgba(255,255,255,0) 81.62%,#fff 99.35%)}
 .opt-b .figures img{position:absolute;top:7.4%;height:137.5%;width:auto}
-/* figures-2 / figures-3 are wide (1.9:1) cutouts already framed to the box — fit by width, not height */
-.opt-b .figures img[src*="figures-3"],
+/* figures-2 is a wide cutout already framed to the box — fit by width, not height */
 .opt-b .figures img[src*="figures-2"]{position:absolute;inset:0;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+/* figures-3 / figures-4 are taller/squarer cutouts — scale to fit without cropping so they don't blow up */
+.opt-b .figures img[src*="figures-3"],
+.opt-b .figures img[src*="figures-4"]{position:absolute;inset:0;top:0;left:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}
 .opt-b .card{overflow:visible}
 .opt-b .card .card-body{border-radius:12px;overflow:hidden}
 
