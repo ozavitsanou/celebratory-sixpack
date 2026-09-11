@@ -25,23 +25,22 @@ const CARDS = [
   },
   {
     teams: [{ logo: 'assets/pistons.png', name: 'MIN Timberwolves' }, { logo: 'assets/celtics.png', name: 'OKC Thunder' }],
-    time: ['22.00'],
+    time: ['21/10', '22.00'],
     odds: [['1.35', '3.00'], [['-1.5', '2.20'], ['+1.5', '1.62']], [['O 222.2', '1.48'], ['U 222.2', '2.55']]],
     photo: null
   },
   {
     teams: [{ logo: 'assets/pistons.png', name: 'GS Warriors' }, { logo: 'assets/celtics.png', name: 'DEN Nuggets' }],
-    time: ['22.00'],
+    time: ['22/10', '22.00'],
     odds: [['2.85', '1.38'], [['-1.5', '1.75'], ['+1.5', '2.08']], [['O 222.2', '1.55'], ['U 222.2', '2.35']]],
     photo: null
   }
 ];
 
-function selBtn(cell) {
-  if (Array.isArray(cell)) {
-    return `<div class="sel-btn"><span class="line">${cell[0]}</span><span class="odds">${cell[1]}</span></div>`;
-  }
-  return `<div class="sel-btn"><span class="odds">${cell}</span></div>`;
+function selBtn(cell, cardIdx, marketIdx, colIdx) {
+  const odds = Array.isArray(cell) ? cell[1] : cell;
+  const line = Array.isArray(cell) ? `<span class="line">${cell[0]}</span>` : '';
+  return `<div class="sel-btn" data-card="${cardIdx}" data-market="${marketIdx}" data-col="${colIdx}" data-odds="${odds}">${line}<span class="odds">${odds}</span></div>`;
 }
 
 function ribbonHTML() {
@@ -53,7 +52,7 @@ function ribbonHTML() {
       </div>`;
 }
 
-function cardHTML(c, mode) {
+function cardHTML(c, mode, cardIdx) {
   const photoParts = [];
   if (c.photo && mode === 'opt-b') {
     photoParts.push(`<div class="figures"><img src="${c.photo.figures}" alt=""></div>`);
@@ -89,12 +88,11 @@ function cardHTML(c, mode) {
             <div class="tappable"><img src="assets/stats-icon.svg" alt=""></div>
           </div>
           <div class="markets">
-            <div class="mcol">${selBtn(c.odds[0][0])}${selBtn(c.odds[0][1])}</div>
-            <div class="mcol">${selBtn(c.odds[1][0])}${selBtn(c.odds[1][1])}</div>
-            <div class="mcol">${selBtn(c.odds[2][0])}${selBtn(c.odds[2][1])}</div>
+            <div class="mcol">${selBtn(c.odds[0][0], cardIdx, 0, 0)}${selBtn(c.odds[0][1], cardIdx, 0, 1)}</div>
+            <div class="mcol">${selBtn(c.odds[1][0], cardIdx, 1, 0)}${selBtn(c.odds[1][1], cardIdx, 1, 1)}</div>
+            <div class="mcol">${selBtn(c.odds[2][0], cardIdx, 2, 0)}${selBtn(c.odds[2][1], cardIdx, 2, 1)}</div>
           </div>
         </div>
-        <div class="footnote"><p>This is a trader’s note&nbsp; -&nbsp; Venue Info</p></div>
       </div>
     </div>
   </div>`;
@@ -103,5 +101,42 @@ function cardHTML(c, mode) {
 (function () {
   const list = document.getElementById('card-list');
   const mode = document.body.classList.contains('opt-b') ? 'opt-b' : 'opt-a';
-  list.innerHTML = CARDS.map(c => cardHTML(c, mode)).join('\n');
+  list.innerHTML = CARDS.map((c, i) => cardHTML(c, mode, i)).join('\n');
+
+  /* Selections + betslip FAB */
+  const fab = document.getElementById('betslip-fab');
+  const fabBadge = fab && fab.querySelector('.fab-badge');
+  const fabPrice = fab && fab.querySelector('.fab-price');
+  const selections = new Map(); // key: "cardIdx-marketIdx" -> odds (number)
+
+  function updateFab() {
+    if (!fab) return;
+    const count = selections.size;
+    if (count === 0) {
+      fab.classList.remove('show');
+      return;
+    }
+    let combined = 1;
+    selections.forEach(odds => { combined *= odds; });
+    fabBadge.textContent = String(count);
+    fabPrice.textContent = combined.toFixed(2);
+    fab.classList.add('show');
+  }
+
+  list.addEventListener('click', e => {
+    const btn = e.target.closest('.sel-btn');
+    if (!btn) return;
+    const { card, market } = btn.dataset;
+    const key = `${card}-${market}`;
+    const wasActive = btn.classList.contains('active');
+    list.querySelectorAll(`.sel-btn[data-card="${card}"][data-market="${market}"]`)
+      .forEach(b => b.classList.remove('active'));
+    if (wasActive) {
+      selections.delete(key);
+    } else {
+      btn.classList.add('active');
+      selections.set(key, parseFloat(btn.dataset.odds));
+    }
+    updateFab();
+  });
 })();
