@@ -197,9 +197,9 @@ img{display:block}
 .sel-btn:hover{border-color:var(--sem-color-border-container-medium)}
 .sel-btn .line{font-family:var(--font-ubuntu-sans);font-weight:450;font-size:12px;line-height:16px;color:var(--sem-color-text-gray-emphasis);white-space:nowrap}
 .sel-btn .odds{font-family:var(--font-ubuntu-sans);font-weight:750;font-size:14px;line-height:20px;color:var(--sem-color-text-highlight)}
-
-.footnote{border-top:1px solid var(--sem-color-fg-divider-soft)}
-.footnote p{font-size:11px;line-height:12px;color:var(--sem-color-text-gray-subtle);padding:8px 14px}
+.sel-btn.active{background:var(--sem-color-bg-primary-default);border-color:var(--sem-color-border-transparent)}
+.sel-btn.active .line{color:var(--sem-color-text-absolute-white)}
+.sel-btn.active .odds{color:var(--sem-color-text-absolute-white)}
 
 /* ============================================================
    OPTION A — anchored players + ambient fill
@@ -255,6 +255,21 @@ img{display:block}
 .proto-switch .seg{font-size:12px;line-height:16px;font-weight:500;color:#fff;text-decoration:none;padding:4px 14px;border-radius:100px;white-space:nowrap}
 .proto-switch .seg.active{background:#fff;color:#151923;font-weight:700}
 .proto-switch .seg:not(.active):hover{background:rgba(255,255,255,.15)}
+/* ============================================================
+   Betslip FAB (Figma 270:26275) — mobile/tablet only, up to 1024px.
+   16px from the right edge; 16px above the bottom nav where it's
+   present (<=825px), 16px from the screen edge above that (826-1024px).
+   ============================================================ */
+.betslip-fab{position:fixed;right:16px;bottom:92px;z-index:60;width:52px;height:52px;border-radius:30px;background:var(--sem-color-bg-primary-default);display:none;align-items:center;justify-content:center;box-shadow:0 4px 8px rgba(9,9,21,.2);cursor:pointer}
+.betslip-fab.show{display:flex}
+.betslip-fab .fab-badge{position:absolute;top:-2px;right:-2px;min-width:16px;height:16px;padding:2px 4px;border-radius:8px;background:var(--sem-color-bg-secondary-default);color:var(--sem-color-text-absolute-white);font-family:var(--font-ubuntu-sans);font-weight:700;font-size:11px;line-height:12px;display:flex;align-items:center;justify-content:center}
+.betslip-fab .fab-price{font-family:var(--font-ubuntu-sans);font-weight:700;font-size:14px;line-height:16px;color:var(--sem-color-text-absolute-white)}
+@media (min-width:826px) and (max-width:1024px){
+  .betslip-fab.show{bottom:16px}
+}
+@media (min-width:1025px){
+  .betslip-fab{display:none !important}
+}
 
 /* ============================================================
    Desktop screen (>=1200px) — Figma node 106:17843
