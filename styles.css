@@ -146,7 +146,6 @@ img{display:block}
 #card-list{display:flex;flex-direction:column;gap:var(--sem-spacing-8);width:100%}
 .card-slot{container-type:inline-size;width:100%}
 .card{width:100%;border:1px solid var(--sem-color-border-container-lowest);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;background:transparent}
-.opt-a .card-slot{position:relative}
 
 .photo{position:relative;height:121px;margin-bottom:-10px;border:1px solid var(--sem-color-border-absolute-alpha-gray);border-bottom:none;overflow:hidden;background:#0d0d0f}
 .card-body{position:relative;background:var(--sem-color-bg-container-lowest-default);border-radius:12px;display:flex;flex-direction:column;z-index:2}
@@ -156,21 +155,6 @@ img{display:block}
 .mkt-titles{flex:1 0 0;display:flex;gap:8px;align-items:center;max-width:740px;min-width:var(--market-section-min-width-six-pack);padding:0 12px 0 8px}
 .mkt-titles span{flex:1 0 0;min-width:40px;text-align:center;font-size:10px;line-height:12px;color:var(--sem-color-text-gray-subtle)}
 .hdr-divider{height:1px;background:var(--sem-color-fg-divider-soft);width:100%}
-
-/* ============================================================
-   Promo ribbon — sits centered on the header divider, left-aligned
-   (Figma 194:90410)
-   ============================================================ */
-.promo-ribbon{position:absolute;left:12px;transform:translateY(-50%);display:flex;align-items:center;z-index:6;filter:drop-shadow(1px 4px 2px rgba(21,25,35,.1));pointer-events:none}
-.opt-a .promo-ribbon{top:143px}
-.opt-b .promo-ribbon{top:64px}
-.promo-ribbon .pr-lead{background:#fff;display:flex;align-items:center;justify-content:center;height:20px;padding:0 4px 0 8px}
-.promo-ribbon .pr-lead img{width:14px;height:14px;display:block}
-.promo-ribbon .pr-end,.promo-ribbon .pr-edge{width:3px;height:20px;display:block;flex:none}
-.promo-ribbon .pr-end img,.promo-ribbon .pr-edge img{width:100%;height:100%;display:block}
-.promo-ribbon .pr-offer{display:flex;align-items:center;gap:3px;height:20px;padding:0 4px 0 8px;background:linear-gradient(69deg,#db3300 0%,#ff0078 100%);white-space:nowrap}
-.promo-ribbon .pr-offer img{width:14px;height:14px;display:block}
-.promo-ribbon .pr-offer span{font-family:var(--font-nichrome);font-variation-settings:"wdth" 62,"wght" 620;font-size:10px;line-height:13px;color:#fff;text-transform:uppercase}
 
 .main{display:flex;align-items:center;position:relative;min-height:136px}
 .brand-vector{position:absolute;top:-1px;bottom:-1px;left:50%;transform:translateX(-50%);width:335px;z-index:1;pointer-events:none}
@@ -197,9 +181,9 @@ img{display:block}
 .sel-btn:hover{border-color:var(--sem-color-border-container-medium)}
 .sel-btn .line{font-family:var(--font-ubuntu-sans);font-weight:450;font-size:12px;line-height:16px;color:var(--sem-color-text-gray-emphasis);white-space:nowrap}
 .sel-btn .odds{font-family:var(--font-ubuntu-sans);font-weight:750;font-size:14px;line-height:20px;color:var(--sem-color-text-highlight)}
-.sel-btn.active{background:var(--sem-color-bg-primary-default);border-color:var(--sem-color-border-transparent)}
-.sel-btn.active .line{color:var(--sem-color-text-absolute-white)}
-.sel-btn.active .odds{color:var(--sem-color-text-absolute-white)}
+
+.footnote{border-top:1px solid var(--sem-color-fg-divider-soft)}
+.footnote p{font-size:11px;line-height:12px;color:var(--sem-color-text-gray-subtle);padding:8px 14px}
 
 /* ============================================================
    OPTION A — anchored players + ambient fill
@@ -226,9 +210,9 @@ img{display:block}
 /* sem/color/overlay/gray/pale none -> emphasis: white fade where the figures meet the card */
 .opt-b .figures::after{content:"";position:absolute;inset:0;background:linear-gradient(179deg,rgba(255,255,255,0) 81.62%,#fff 99.35%)}
 .opt-b .figures img{position:absolute;top:7.4%;height:137.5%;width:auto}
-/* figures-2 / figures-3 are wide (1.9:1) cutouts already framed to the box — fit by width, not height */
-.opt-b .figures img[src*="figures-3"],
-.opt-b .figures img[src*="figures-2"]{position:absolute;inset:0;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+/* align the visible figures to the same x (~8px) — the cutouts carry different transparent padding */
+.opt-b .figures img[src*="figures-3"]{left:8px;height:152%;top:2%}
+.opt-b .figures img[src*="figures-2"]{left:8px}
 .opt-b .card{overflow:visible}
 .opt-b .card .card-body{border-radius:12px;overflow:hidden}
 
@@ -255,21 +239,6 @@ img{display:block}
 .proto-switch .seg{font-size:12px;line-height:16px;font-weight:500;color:#fff;text-decoration:none;padding:4px 14px;border-radius:100px;white-space:nowrap}
 .proto-switch .seg.active{background:#fff;color:#151923;font-weight:700}
 .proto-switch .seg:not(.active):hover{background:rgba(255,255,255,.15)}
-/* ============================================================
-   Betslip FAB (Figma 270:26275) — mobile/tablet only, up to 1024px.
-   16px from the right edge; 16px above the bottom nav where it's
-   present (<=825px), 16px from the screen edge above that (826-1024px).
-   ============================================================ */
-.betslip-fab{position:fixed;right:16px;bottom:92px;z-index:60;width:52px;height:52px;border-radius:30px;background:var(--sem-color-bg-primary-default);display:none;align-items:center;justify-content:center;box-shadow:0 4px 8px rgba(9,9,21,.2);cursor:pointer}
-.betslip-fab.show{display:flex}
-.betslip-fab .fab-badge{position:absolute;top:-2px;right:-2px;min-width:16px;height:16px;padding:2px 4px;border-radius:8px;background:var(--sem-color-bg-secondary-default);color:var(--sem-color-text-absolute-white);font-family:var(--font-ubuntu-sans);font-weight:700;font-size:11px;line-height:12px;display:flex;align-items:center;justify-content:center}
-.betslip-fab .fab-price{font-family:var(--font-ubuntu-sans);font-weight:700;font-size:14px;line-height:16px;color:var(--sem-color-text-absolute-white)}
-@media (min-width:826px) and (max-width:1024px){
-  .betslip-fab.show{bottom:16px}
-}
-@media (min-width:1025px){
-  .betslip-fab{display:none !important}
-}
 
 /* ============================================================
    Desktop screen (>=1200px) — Figma node 106:17843
@@ -376,8 +345,6 @@ img{display:block}
   .opt-a .photo{display:none}
   .opt-b .figures{display:none}
   .opt-b .card-slot:has(.figures){padding-top:0}
-  /* no photo/figures above the divider at this width, so the ribbon sits right at the header height */
-  .opt-a .promo-ribbon,.opt-b .promo-ribbon{top:32px}
 }
 @media (min-width:1281px){
   .side-rail{display:none}
